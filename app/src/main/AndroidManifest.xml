@@ -19,7 +19,8 @@
         <activity
             android:name=".view.AddActivity"
             android:parentActivityName=".view.MainActivity"
-            android:label="@string/title_add"/>
+            android:label="@string/title_add"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

@@ -1,121 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:divider="@drawable/divider"
-    android:orientation="vertical"
-    android:showDividers="middle"
+    android:fitsSystemWindows="true"
     tools:context="com.example.shoddiq.binarandoridassessmenttest.view.AddActivity">
 
-    <LinearLayout
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/add_height"
-        android:layout_marginLeft="@dimen/content_margin"
-        android:layout_marginRight="@dimen/content_margin"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <TextView
-            android:layout_width="@dimen/add_label"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:text="@string/add_name" />
-
-        <EditText
-            android:id="@+id/act_add_name_edit_text"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/act_add_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:backgroundTint="@android:color/transparent"
-            android:inputType="text"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/add_input"
-            tools:hint="Stuff Name"
-            tools:textColorHint="@android:color/black" />
-    </LinearLayout>
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+    </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/add_height"
-        android:layout_marginLeft="@dimen/content_margin"
-        android:layout_marginRight="@dimen/content_margin"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="@dimen/add_label"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:text="@string/add_supplier" />
-
-        <EditText
-            android:id="@+id/act_add_supplier_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:backgroundTint="@android:color/transparent"
-            android:inputType="text"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/add_input"
-            tools:hint="Supplier's Name"
-            tools:textColorHint="@android:color/black" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/add_height"
-        android:layout_marginLeft="@dimen/content_margin"
-        android:layout_marginRight="@dimen/content_margin"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="@dimen/add_label"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:text="@string/add_date" />
-
-        <EditText
-            android:id="@+id/act_add_date_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:backgroundTint="@android:color/transparent"
-            android:inputType="text"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/add_input"
-            tools:hint="Date"
-            tools:textColorHint="@android:color/black" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/add_height"
-        android:layout_marginLeft="@dimen/content_margin"
-        android:layout_marginRight="@dimen/content_margin"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="@dimen/add_label"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:text="@string/add_total" />
-
-        <EditText
-            android:id="@+id/act_add_total_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:backgroundTint="@android:color/transparent"
-            android:inputType="number"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/add_input"
-            tools:hint="Total"
-            tools:textColorHint="@android:color/black" />
-    </LinearLayout>
-
-    <EditText
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="@android:color/transparent"
-        android:gravity="top"
-        android:hint="@string/add_other"
-        android:inputType="text"
-        android:paddingLeft="@dimen/content_margin"
-        android:textSize="@dimen/add_input" />
-</LinearLayout>
+        android:layout_marginTop="?actionBarSize"
+        android:divider="@drawable/divider"
+        android:orientation="vertical"
+        android:showDividers="middle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/add_height"
+            android:layout_marginLeft="@dimen/content_margin"
+            android:layout_marginRight="@dimen/content_margin"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/add_label"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="@string/add_name" />
+
+            <EditText
+                android:id="@+id/act_add_name_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@android:color/transparent"
+                android:inputType="text"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/add_input"
+                tools:hint="Stuff Name"
+                tools:textColorHint="@android:color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/add_height"
+            android:layout_marginLeft="@dimen/content_margin"
+            android:layout_marginRight="@dimen/content_margin"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/add_label"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="@string/add_supplier" />
+
+            <EditText
+                android:id="@+id/act_add_supplier_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@android:color/transparent"
+                android:inputType="text"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/add_input"
+                tools:hint="Supplier's Name"
+                tools:textColorHint="@android:color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/add_height"
+            android:layout_marginLeft="@dimen/content_margin"
+            android:layout_marginRight="@dimen/content_margin"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/add_label"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="@string/add_date" />
+
+            <EditText
+                android:id="@+id/act_add_date_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@android:color/transparent"
+                android:focusableInTouchMode="false"
+                android:inputType="text"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/add_input"
+                tools:hint="Date"
+                tools:textColorHint="@android:color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/add_height"
+            android:layout_marginLeft="@dimen/content_margin"
+            android:layout_marginRight="@dimen/content_margin"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/add_label"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="@string/add_total" />
+
+            <EditText
+                android:id="@+id/act_add_total_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@android:color/transparent"
+                android:inputType="number"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/add_input"
+                tools:hint="Total"
+                tools:textColorHint="@android:color/black" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/act_add_other_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@android:color/transparent"
+            android:gravity="top"
+            android:hint="@string/add_other"
+            android:inputType="text"
+            android:paddingLeft="@dimen/content_margin"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/add_input" />
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
