@@ -6,4 +6,7 @@
     <dimen name="content_char">24sp</dimen>
     <dimen name="content_name">18sp</dimen>
     <dimen name="content_date">16sp</dimen>
+    <dimen name="add_label">72dp</dimen>
+    <dimen name="add_input">14sp</dimen>
+    <dimen name="add_height">48dp</dimen>
 </resources>

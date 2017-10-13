@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Stuff Records</string>
     <string name="title_add">Add Stuff</string>
+
+    <string name="add_name">Name</string>
+    <string name="add_supplier">Supplier</string>
+    <string name="add_date">Date</string>
+    <string name="add_total">Total</string>
+    <string name="add_other">Others</string>
 </resources>
