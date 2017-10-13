@@ -9,4 +9,5 @@
     <dimen name="add_label">72dp</dimen>
     <dimen name="add_input">14sp</dimen>
     <dimen name="add_height">48dp</dimen>
+    <dimen name="detail_date">14sp</dimen>
 </resources>
