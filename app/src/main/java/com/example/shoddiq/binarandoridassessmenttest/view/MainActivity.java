@@ -10,6 +10,7 @@ import android.widget.ProgressBar;
 
 import com.example.shoddiq.binarandoridassessmenttest.R;
 import com.example.shoddiq.binarandoridassessmenttest.model.Stuff;
+import com.example.shoddiq.binarandoridassessmenttest.presenter.MainPresenter;
 import com.example.shoddiq.binarandoridassessmenttest.view.ifaces.iMainView;
 
 import java.util.List;
@@ -32,11 +33,16 @@ public class MainActivity extends AppCompatActivity implements iMainView {
 
     }
 
+    MainPresenter presenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        presenter = new MainPresenter(this);
+        presenter.onCreateView();
     }
 
     @Override
