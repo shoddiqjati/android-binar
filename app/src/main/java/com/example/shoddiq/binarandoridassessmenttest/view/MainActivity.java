@@ -14,6 +14,7 @@ import com.example.shoddiq.binarandoridassessmenttest.R;
 import com.example.shoddiq.binarandoridassessmenttest.helper.DividerItemDecoration;
 import com.example.shoddiq.binarandoridassessmenttest.model.Stuff;
 import com.example.shoddiq.binarandoridassessmenttest.presenter.MainPresenter;
+import com.example.shoddiq.binarandoridassessmenttest.utils.Constants;
 import com.example.shoddiq.binarandoridassessmenttest.view.adapter.MainAdapter;
 import com.example.shoddiq.binarandoridassessmenttest.view.ifaces.iMainView;
 
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements iMainView {
     MainPresenter presenter;
     List<Stuff> stuffList;
     MainAdapter adapter;
+    String status;
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -52,6 +54,18 @@ public class MainActivity extends AppCompatActivity implements iMainView {
         presenter = new MainPresenter(this);
         presenter.onCreateView();
         presenter.loadStuff();
+
+        Intent intent = getIntent();
+        status = intent.getStringExtra(Constants.LOGIN);
+        if (status != null) {
+            if (status.equals(Constants.WRITER)) {
+                fab.setVisibility(View.VISIBLE);
+            } else {
+                fab.setVisibility(View.GONE);
+            }
+        } else {
+            fab.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -75,17 +89,10 @@ public class MainActivity extends AppCompatActivity implements iMainView {
         if (isLoading) {
             progressBar.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.GONE);
-            fab.setVisibility(View.GONE);
         } else {
             progressBar.setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
-            fab.setVisibility(View.VISIBLE);
         }
-    }
-
-    @Override
-    public void onItemTouch(int position) {
-
     }
 
     @Override

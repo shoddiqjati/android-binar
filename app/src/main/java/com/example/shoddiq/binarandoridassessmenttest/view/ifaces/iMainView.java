@@ -10,6 +10,4 @@ public interface iMainView {
     void setupView();
 
     void showLoading(boolean isLoading);
-
-    void onItemTouch(int position);
 }
