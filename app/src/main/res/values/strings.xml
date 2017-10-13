@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Stuff Records</string>
+    <string name="title_add">Add Stuff</string>
 </resources>
