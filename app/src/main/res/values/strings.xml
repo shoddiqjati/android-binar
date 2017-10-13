@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Stuff Records</string>
     <string name="title_add">Add Stuff</string>
+    <string name="title_details">Detail Stuff</string>
 
     <string name="add_name">Name</string>
     <string name="add_supplier">Supplier</string>

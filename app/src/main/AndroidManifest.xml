@@ -18,9 +18,12 @@
         </activity>
         <activity
             android:name=".view.AddActivity"
-            android:parentActivityName=".view.MainActivity"
             android:label="@string/title_add"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:parentActivityName=".view.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".view.DetailsActivity"
+            android:parentActivityName=".view.MainActivity"
+            android:label="@string/title_details"/>
     </application>
 
 </manifest>
