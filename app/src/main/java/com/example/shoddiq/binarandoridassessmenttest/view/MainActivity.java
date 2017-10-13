@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import com.example.shoddiq.binarandoridassessmenttest.R;
+import com.example.shoddiq.binarandoridassessmenttest.helper.DividerItemDecoration;
 import com.example.shoddiq.binarandoridassessmenttest.model.Stuff;
 import com.example.shoddiq.binarandoridassessmenttest.presenter.MainPresenter;
 import com.example.shoddiq.binarandoridassessmenttest.view.ifaces.iMainView;
@@ -54,12 +55,9 @@ public class MainActivity extends AppCompatActivity implements iMainView {
     @Override
     public void setupView() {
         LinearLayoutManager manager = new LinearLayoutManager(this);
-
-    }
-
-    @Override
-    public void setupListener() {
-
+        RecyclerView.ItemDecoration divider = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST);
+        recyclerView.setLayoutManager(manager);
+        recyclerView.addItemDecoration(divider);
     }
 
     @Override

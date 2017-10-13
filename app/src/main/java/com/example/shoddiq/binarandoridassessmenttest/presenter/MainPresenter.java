@@ -30,7 +30,6 @@ public class MainPresenter {
 
     public void onCreateView() {
         mView.setupView();
-        mView.setupListener();
     }
 
     public void loadStuff() {
