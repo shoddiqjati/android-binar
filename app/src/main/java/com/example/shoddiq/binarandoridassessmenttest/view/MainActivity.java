@@ -1,10 +1,12 @@
 package com.example.shoddiq.binarandoridassessmenttest.view;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -12,6 +14,7 @@ import com.example.shoddiq.binarandoridassessmenttest.R;
 import com.example.shoddiq.binarandoridassessmenttest.helper.DividerItemDecoration;
 import com.example.shoddiq.binarandoridassessmenttest.model.Stuff;
 import com.example.shoddiq.binarandoridassessmenttest.presenter.MainPresenter;
+import com.example.shoddiq.binarandoridassessmenttest.view.adapter.MainAdapter;
 import com.example.shoddiq.binarandoridassessmenttest.view.ifaces.iMainView;
 
 import java.util.List;
@@ -31,10 +34,14 @@ public class MainActivity extends AppCompatActivity implements iMainView {
 
     @OnClick(R.id.fab)
     public void fabHandler() {
-
+        startActivity(new Intent(this, AddActivity.class));
     }
 
     MainPresenter presenter;
+    List<Stuff> stuffList;
+    MainAdapter adapter;
+
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +56,10 @@ public class MainActivity extends AppCompatActivity implements iMainView {
 
     @Override
     public void displayData(List<Stuff> stuffList) {
-
+        this.stuffList = stuffList;
+        adapter = new MainAdapter(this, this.stuffList);
+        adapter.notifyDataSetChanged();
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
@@ -76,5 +86,11 @@ public class MainActivity extends AppCompatActivity implements iMainView {
     @Override
     public void onItemTouch(int position) {
 
+    }
+
+    @Override
+    protected void onResume() {
+        Log.d(TAG, "onResume");
+        super.onResume();
     }
 }

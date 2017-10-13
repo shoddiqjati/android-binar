@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="content_margin">16dp</dimen>
+    <dimen name="content_circle">48dp</dimen>
+    <dimen name="content_char">24sp</dimen>
+    <dimen name="content_name">18sp</dimen>
+    <dimen name="content_date">16sp</dimen>
 </resources>

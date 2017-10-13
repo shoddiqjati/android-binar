@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/content_margin"
+    android:layout_marginRight="@dimen/content_margin"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="@dimen/content_circle"
+        android:layout_height="@dimen/content_circle"
+        android:layout_marginBottom="@dimen/content_margin"
+        android:layout_marginRight="@dimen/content_margin"
+        android:layout_marginTop="@dimen/content_margin"
+        android:background="@drawable/bg_circle">
+
+        <TextView
+            android:id="@+id/content_icon_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/content_char"
+            tools:text="T" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/content_name_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:maxLines="1"
+                android:textSize="@dimen/content_name"
+                tools:text="Smartphone" />
+
+            <TextView
+                android:id="@+id/content_date_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-light"
+                android:maxLines="1"
+                android:textAlignment="textEnd"
+                tools:ignore="RtlCompat"
+                tools:text="12/12/2017" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/content_supplier_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:maxLines="1"
+            android:textSize="@dimen/content_date"
+            tools:text="Xiaomi" />
+    </LinearLayout>
+</LinearLayout>
