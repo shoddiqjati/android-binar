@@ -2,11 +2,16 @@ package com.example.shoddiq.binarandoridassessmenttest.view;
 
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -26,6 +31,8 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity implements iMainView {
 
+    @BindView(R.id.act_main_toolbar)
+    Toolbar toolbar;
     @BindView(R.id.act_main_recycler_view)
     RecyclerView recyclerView;
     @BindView(R.id.progressBar)
@@ -50,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements iMainView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        setSupportActionBar(toolbar);
 
         presenter = new MainPresenter(this);
         presenter.onCreateView();
@@ -66,6 +74,36 @@ public class MainActivity extends AppCompatActivity implements iMainView {
         } else {
             fab.setVisibility(View.GONE);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        MenuItem search = menu.findItem(R.id.search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(search);
+        search(searchView);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void search(SearchView searchView) {
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                Log.d(TAG, newText);
+                return true;
+            }
+        });
     }
 
     @Override
