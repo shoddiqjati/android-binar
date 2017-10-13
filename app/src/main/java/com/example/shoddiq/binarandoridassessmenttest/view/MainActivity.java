@@ -1,9 +1,9 @@
 package com.example.shoddiq.binarandoridassessmenttest.view;
 
-import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements iMainView {
 
         presenter = new MainPresenter(this);
         presenter.onCreateView();
+        presenter.loadStuff();
     }
 
     @Override
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements iMainView {
 
     @Override
     public void setupView() {
+        LinearLayoutManager manager = new LinearLayoutManager(this);
 
     }
 
