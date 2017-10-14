@@ -14,6 +14,17 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import durdinapps.rxfirebase2.DataSnapshotMapper;
+import durdinapps.rxfirebase2.RxFirebaseChildEvent;
+import durdinapps.rxfirebase2.RxFirebaseDatabase;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.internal.observers.BlockingMultiObserver;
+import io.reactivex.schedulers.Schedulers;
+
 public class MainPresenter {
     private iMainView mView;
     private DatabaseReference databaseReference;
@@ -34,21 +45,15 @@ public class MainPresenter {
 
     public void loadStuff() {
         mView.showLoading(true);
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                List<Stuff> stuffList = new ArrayList<>();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    stuffList.add(snapshot.getValue(Stuff.class));
-                }
-                mView.displayData(stuffList);
-                mView.showLoading(false);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.d(TAG, databaseError.getMessage());
-            }
-        });
+        RxFirebaseDatabase.observeValueEvent(databaseReference, DataSnapshotMapper.listOf(Stuff.class))
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<List<Stuff>>() {
+                    @Override
+                    public void accept(List<Stuff> stuffList) throws Exception {
+                        mView.displayData(stuffList);
+                        mView.showLoading(false);
+                    }
+                });
     }
 }

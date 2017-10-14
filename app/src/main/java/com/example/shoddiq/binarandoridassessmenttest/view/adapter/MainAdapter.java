@@ -99,6 +99,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyHolder> impl
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
                 mFilteredList = (List<Stuff>) results.values;
+                Collections.reverse(mFilteredList);
                 notifyDataSetChanged();
             }
         };
