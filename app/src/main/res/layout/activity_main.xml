@@ -40,4 +40,23 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"/>
 
+    <LinearLayout
+        android:id="@+id/act_main_no_record_linear_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_assignment"
+            android:layout_marginBottom="@dimen/content_margin"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Records"
+            android:textSize="@dimen/content_name"/>
+    </LinearLayout>
+
 </android.support.design.widget.CoordinatorLayout>

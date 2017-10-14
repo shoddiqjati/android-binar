@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import com.example.shoddiq.binarandoridassessmenttest.R;
@@ -37,6 +38,8 @@ public class MainActivity extends AppCompatActivity implements iMainView {
     RecyclerView recyclerView;
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
+    @BindView(R.id.act_main_no_record_linear_layout)
+    LinearLayout linearLayout;
     @BindView(R.id.fab)
     FloatingActionButton fab;
 
@@ -108,10 +111,17 @@ public class MainActivity extends AppCompatActivity implements iMainView {
 
     @Override
     public void displayData(List<Stuff> stuffList) {
-        this.stuffList = stuffList;
-        adapter = new MainAdapter(this, this.stuffList);
-        adapter.notifyDataSetChanged();
-        recyclerView.setAdapter(adapter);
+        if (stuffList.size() != 0) {
+            this.stuffList = stuffList;
+            adapter = new MainAdapter(this, this.stuffList);
+            adapter.notifyDataSetChanged();
+            recyclerView.setAdapter(adapter);
+            recyclerView.setVisibility(View.VISIBLE);
+            linearLayout.setVisibility(View.GONE);
+        } else {
+            recyclerView.setVisibility(View.GONE);
+            linearLayout.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -127,6 +137,7 @@ public class MainActivity extends AppCompatActivity implements iMainView {
         if (isLoading) {
             progressBar.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.GONE);
+            linearLayout.setVisibility(View.GONE);
         } else {
             progressBar.setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
@@ -136,6 +147,7 @@ public class MainActivity extends AppCompatActivity implements iMainView {
     @Override
     protected void onResume() {
         Log.d(TAG, "onResume");
+        presenter.loadStuff();
         super.onResume();
     }
 }
